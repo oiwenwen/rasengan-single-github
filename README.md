@@ -15,3 +15,13 @@ python3 -m http.server 8000 --bind 127.0.0.1 --directory dist
 ## 更新
 
 网页源码和静态资源在 `dist/`。 `app.js` 负责应用流程，`hand*.mjs` 负责手势识别与跟随，`effect.js` 负责绘制。修改后刷新本地预览即可，无需构建。
+
+---
+
+## 在线预览（GitHub Pages）
+
+启用 Pages 后访问：`https://oiwenwen.github.io/rasengan-single-github/`
+
+发布目录：`docs/`（内容为 `dist/` 的副本）
+
+> 首次打开会申请摄像头权限，用于手部追踪。全部识别在本地浏览器完成，不上传任何画面。
