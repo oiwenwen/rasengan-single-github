@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080d18">
+  <meta name="description" content="用一只手控制掌心的螺旋丸。持续张手凝聚能量，握拳让它消散。">
+  <title>螺旋丸 · 手势实验</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand" href="./" aria-label="螺旋丸手势实验首页">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>螺旋丸<span class="brand-divider"></span><small>手势实验</small></span>
+      </a>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="intro" aria-labelledby="title">
+      <div>
+        <h1 id="title">掌中<span>螺旋丸</span></h1>
+        <p>保持手掌张开，查克拉会逐渐蓄满。慢慢握拳，让能量消散。</p>
+      </div>
+      <div class="mode" role="group" aria-label="操作模式">
+        <button type="button" id="preview-mode" aria-pressed="true"><span aria-hidden="true">◈</span>效果预览</button>
+        <button type="button" id="camera-mode" aria-pressed="false"><span class="camera-icon" aria-hidden="true"></span>手势模式</button>
+      </div>
+    </section>
+
+    <div class="lab">
+      <section class="stage" id="stage" aria-label="螺旋丸画面">
+        <video id="camera" autoplay playsinline muted aria-label="镜像摄像头画面"></video>
+        <div class="stage-grid" aria-hidden="true"></div>
+        <canvas id="effect" aria-hidden="true"></canvas>
+        <div class="stage-frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <div class="stage-header">
+          <span id="stage-mode"><i></i>效果预览</span>
+          <span class="gesture" id="gesture" hidden></span>
+        </div>
+        <p class="stage-message" id="stage-message" hidden></p>
+        <div class="stage-bottom">
+          <span id="stage-hint">拖动能量球，试试跟随效果</span>
+          <span class="crosshair" aria-hidden="true">⊹</span>
+        </div>
+      </section>
+
+      <aside class="sidebar" aria-label="实验控制">
+        <section class="panel controls">
+          <div class="panel-title">
+            <span class="panel-icon" aria-hidden="true">◉</span>
+            <h2>手势控制</h2>
+          </div>
+          <p id="camera-help" class="camera-help">开启摄像头，把一只手完整地伸进画面。</p>
+          <button id="camera-action" type="button" class="primary">
+            <span class="camera-icon" aria-hidden="true"></span><span id="camera-action-label">开启摄像头</span>
+          </button>
+          <p id="status" class="status" role="status"><i></i><span>画面仅在当前设备处理</span></p>
+          <div class="energy">
+            <div class="energy-heading">
+              <label id="energy-label" for="preview-energy">蓄力进度</label>
+              <output id="energy-value" for="preview-energy">78<span>%</span></output>
+            </div>
+            <div id="meter" class="meter">
+              <div id="energy-fill" aria-hidden="true"></div>
+              <input id="preview-energy" type="range" min="0" max="100" value="78" aria-describedby="energy-hint">
+            </div>
+            <p id="energy-hint" class="energy-hint">拖动滑条，预览不同蓄力阶段</p>
+          </div>
+        </section>
+
+        <section class="panel guide" aria-labelledby="guide-title">
+          <div class="panel-title">
+            <span class="panel-icon" aria-hidden="true">✧</span>
+            <h2 id="guide-title">动作指南</h2>
+          </div>
+          <dl>
+            <div><dt><span class="guide-symbol" aria-hidden="true">✦</span>张开手掌</dt><dd>保持张开，球逐渐变大，直到蓄满</dd></div>
+            <div><dt><span class="guide-symbol" aria-hidden="true">◇</span>移动手掌</dt><dd>能量球跟随掌心</dd></div>
+            <div><dt><span class="guide-symbol" aria-hidden="true">·</span>握紧拳头</dt><dd>能量球消散</dd></div>
+          </dl>
+        </section>
+      </aside>
+    </div>
+  </main>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
